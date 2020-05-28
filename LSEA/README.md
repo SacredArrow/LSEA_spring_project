@@ -19,7 +19,7 @@ To use pregenerated file from *plink* run:
 python3 LSEA_2.0.py -tsv ./in.tsv -use_clumped ./<clumped_file>.clumped -interval 100000 -gene_file ../data/gencode_formatted.tsv -json universe.json -column_names CHR BP SNP P
 `  
 
-To generate universe run:
+To generate universe run:  
 `
 python3 universe_generator.py -path ./in.tsv -gene_file ../data/gencode_formatted.tsv -msig_path ../c2.all.v7.0.symbols.gmt  -interval 100000
 `
