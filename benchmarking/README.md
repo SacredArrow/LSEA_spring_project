@@ -2,7 +2,7 @@
 The process of benchmarking implies several steps including genotype and phenotype data simulation, GWAS association
 and lastly gene set analysis with LSEA.
 
-## 1. Haplotype simulation with HapGen2 based on 1000GP_Phase3 genotype data
+### 1. Haplotype simulation with HapGen2 based on 1000GP_Phase3 genotype data
 
 ```{r, engine=bash}
 hapdir=~/1000GP_Phase3
@@ -18,7 +18,7 @@ for chr in `seq 1 22`; do
 done
 ```
 
-## 2. Conversion of Oxford to PLINK format
+### 2. Conversion of Oxford to PLINK format
 
 ```{r, engine=bash}
 for chr in `seq 1 22`; do
@@ -33,7 +33,7 @@ done
 plink --merge-list file_list --make-bed --out genotypes_genome_hapgen.controls
 ```
 
-## 3. Variant selection for causal SNP and genetic background simulation
+### 3. Variant selection for causal SNP and genetic background simulation
 
 ```{r, engine=bash}
 ~/plink/plink --bfile genotypes_genome_hapgen.controls --extract caspase_list.txt \
@@ -47,9 +47,9 @@ shuf -n 985 snps.map > snps.subset.map
 --make-bed --out genotypes_subset_hapgen.controls
 ```
 
-## 4. Phenotype construction via PhenotypeSimulator (look into Phenotype_script.R)
+### 4. Phenotype construction via PhenotypeSimulator (look into Phenotype_script.R)
 
-## 5. GWAS association via PLINK
+### 5. GWAS association via PLINK
 
 ```{r, engine=bash}
 cat Y_caspase | awk 'BEGIN { FS="\t"; OFS="\t" } { $1=$1 "\t" $1 } 1' > Y_caspase1 
@@ -59,7 +59,7 @@ cat Y_caspase2 | tr -d '"' > Y_caspase3
 nohup ~/plink/plink --bfile genotypes_genome_hapgen.controls --maf 0.05 --hwe 1e-10 --allow-no-sex --pheno Y_caspase3 --all-pheno --assoc --out A_caspase &
 
 ```
-## 6. LSEA gene set analysis
+### 6. LSEA gene set analysis
 
 ```{r, engine=bash}
 for P in `seq 2 10`; do
@@ -70,6 +70,3 @@ for P in `seq 2 10`; do
 done
 
 ```
-
-
-
