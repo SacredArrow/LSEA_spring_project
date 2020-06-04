@@ -1,5 +1,5 @@
 # Benchmarking
-The process of benchmarking implies several steps including genotype and phenotype data simulation, GWAS association
+The process of benchmarking implies several steps, including genotype and phenotype data simulation, GWAS association
 and lastly gene set analysis with LSEA.
 
 ### 1. Haplotype simulation with HapGen2 based on 1000GP_Phase3 genotype data
