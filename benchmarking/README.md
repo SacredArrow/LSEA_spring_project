@@ -70,3 +70,5 @@ for P in `seq 2 10`; do
 done
 
 ```
+### 7. Results
+You can find results of gene set analysis conducted by LSEA and MAGMA on the same simulated dataset with a caspase associated causal SNPs. In most cases LSEA detects extrinsic caspase pathway more reliably then MAGMA.
