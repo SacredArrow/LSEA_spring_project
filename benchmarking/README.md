@@ -41,7 +41,7 @@ plink --merge-list file_list --make-bed --out genotypes_genome_hapgen.controls
 
 cut -f2 genotypes_genome_hapgen.controls.bim > snps.map 
 shuf -n 985 snps.map > snps.subset.map
-#add causal SNP to snps.subset.map with nano
+cat target_list.txt >> snps.subset.map
 
 ~/plink/plink --bfile genotypes_genome_hapgen.controls --extract snps.subset.map \
 --make-bed --out genotypes_subset_hapgen.controls
